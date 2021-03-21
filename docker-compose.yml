@@ -1,0 +1,70 @@
+version: "3.7"
+services:
+  debug:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: builder
+      args:
+        app_name: kafka
+    ports:
+      - 8000
+      - 9000
+    volumes:
+      - .:/var/app
+    environment:
+      - TOPIC=protobuf
+      - BROKERS=kafka:9092
+    depends_on:
+      - kafka
+
+  consumer:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+        app_name: kafka
+    ports:
+      - 8000
+      - 9000
+    volumes:
+      - .:/var/app
+    environment:
+      - TOPIC=protobuf
+      - BROKERS=kafka:9092
+    depends_on:
+      - kafka
+
+  producer:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+        app_name: test
+    ports:
+      - 8000
+      - 9000
+    volumes:
+      - .:/var/app
+    environment:
+      - TOPIC=protobuf
+      - BROKERS=kafka:9092
+    depends_on:
+      - kafka
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - 2181
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+      - 9092
+    environment:
+      - KAFKA_ADVERTISED_HOST_NAME=kafka
+      - KAFKA_CREATE_TOPICS=test:10:1,stats:50:1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_PORT=9092
+      - KAFKA_ADVERTISED_PORT=9092
+    depends_on:
+      - zookeeper
