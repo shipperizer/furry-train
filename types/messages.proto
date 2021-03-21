@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package messages.v1;
+
+import "google/protobuf/struct.proto";
+
+option go_package = "github.com/shipperizer/furry-train/types";
+
+
+message Event {
+    string uuid = 1;
+    int64 id = 2;
+    google.protobuf.Struct config = 3;
+}
