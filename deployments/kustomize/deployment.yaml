@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: furry-train-web-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: furry-train-web-app
+  template:
+    metadata:
+      labels:
+        app: furry-train-web-app
+      annotations:
+        prometheus.io/path: /metrics
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+    spec:
+      containers:
+      - image: ghcr.io/shipperizer/furry-train-web-app
+        name: furry-train-web-app
+        envFrom:
+          - configMapRef:
+              name: furry-train-web-app
+        ports:
+        - name: http
+          containerPort: 8000
+        readinessProbe:
+          httpGet:
+            path: "/api/v0/status"
+            port: 8000
+          initialDelaySeconds: 5
+          failureThreshold: 10
+          timeoutSeconds: 5
+          periodSeconds: 30
+        livenessProbe:
+          httpGet:
+            path: "/api/v0/status"
+            port: 8000
+          initialDelaySeconds: 5
+          failureThreshold: 10
+          timeoutSeconds: 5
+          periodSeconds: 30
+      imagePullSecrets:
+      - name: regcred-github

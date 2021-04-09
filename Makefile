@@ -4,12 +4,13 @@ GO111MODULE?=on
 GOPRIVATE?=github.com/shipperizer/*
 CGO_ENABLED?=0
 GOOS?=linux
+GOARCH?=amd64
 GO?=go
 PROTOC?=protoc
 INCLUDE?=/usr/include/protoc
 PROTOBUF_GO_VERSION?=1.25.0
 PROTOBUF_GRPC_GO_VERSION=1.1.0
-APP_NAME?=kafka
+APP_NAME?=web
 
 .EXPORT_ALL_VARIABLES:
 

@@ -49,8 +49,14 @@ func Spam(producer *kafka.Writer) {
 			Config: cfg,
 		}
 
-		msg, _ := proto.Marshal(&event)
+		msg, err := proto.Marshal(&event)
 
+		if err != nil {
+			log.Error(err)
+			continue
+		}
+
+		log.Info(msg)
 		events = append(
 			events,
 			kafka.Message{
