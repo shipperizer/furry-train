@@ -1,0 +1,10 @@
+commonLabels:
+  deployment: furry-train-web-app
+  app: furry-train-web-app
+
+resources:
+- deployment.yaml
+- service.yaml
+- configMap.yaml
+- certificate.yaml
+- ingress.yaml

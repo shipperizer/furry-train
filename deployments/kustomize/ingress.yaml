@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: furry-train-web-app
+  annotations:
+    traefik.ingress.kubernetes.io/rate-limit: |
+        extractorfunc: client.ip
+        rateset:
+          base:
+            period: 10s
+            average: 5
+            burst: 10
+spec:
+  tls:
+    - hosts:
+      - api.shipperizer.org
+      secretName: api-shipperizer-org-tls
+  rules:
+    - host: "api.shipperizer.org"
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: furry-train-web-app
+            servicePort: 80
