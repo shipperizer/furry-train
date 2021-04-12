@@ -21,7 +21,7 @@ type EnvSpec struct {
 
 func Status(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(map[string]string{"message": "Purple Bro"})
+	json.NewEncoder(w).Encode(map[string]string{"message": "Purple, no Gold Bro"})
 }
 
 func main() {
