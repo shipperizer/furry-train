@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/shipperizer/furry-train/compare/v1.0.2...v1.0.3) (2021-04-23)
+
+
+### Bug Fixes
+
+* drop skaffold bin from root of repo ([5aa2978](https://www.github.com/shipperizer/furry-train/commit/5aa29782403227119176e8d76d1ac8a0e7a994b2))
+
 ### [1.0.2](https://www.github.com/shipperizer/furry-train/compare/v1.0.1...v1.0.2) (2021-04-23)
 
 
