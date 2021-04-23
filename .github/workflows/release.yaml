@@ -10,13 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - uses: GoogleCloudPlatform/release-please-action@v2
         with:
           release-type: simple
           package-name: furry-train
           pull-request-title-pattern: "[release] chore${scope}: release${component} ${version}."
+  build:
+    needs: release-please
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: docker/setup-buildx-action@v1
         id: buildx
         with:
