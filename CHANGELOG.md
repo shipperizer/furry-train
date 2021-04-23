@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/shipperizer/furry-train/compare/v1.0.0...v1.0.1) (2021-04-23)
+
+
+### Bug Fixes
+
+* fetch all tags on release ([9e8a819](https://www.github.com/shipperizer/furry-train/commit/9e8a8191575954616c1c36e1964f68947c774390))
+
 ## 1.0.0 (2021-04-23)
 
 
