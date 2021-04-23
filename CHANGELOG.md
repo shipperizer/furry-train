@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/shipperizer/furry-train/compare/v1.0.1...v1.0.2) (2021-04-23)
+
+
+### Bug Fixes
+
+* use separate but dependent jobs to get tag ([161a5e9](https://www.github.com/shipperizer/furry-train/commit/161a5e98a16ff675aee9baff54767116882c0541))
+
 ### [1.0.1](https://www.github.com/shipperizer/furry-train/compare/v1.0.0...v1.0.1) (2021-04-23)
 
 
