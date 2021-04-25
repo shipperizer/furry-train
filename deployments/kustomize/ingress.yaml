@@ -1,15 +1,9 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: furry-train-web-app
+  name: furry-train-web-app-https
   annotations:
-    traefik.ingress.kubernetes.io/rate-limit: |
-        extractorfunc: client.ip
-        rateset:
-          base:
-            period: 10s
-            average: 5
-            burst: 10
+    kubernetes.io/ingress.class: contour
 spec:
   tls:
     - hosts:
@@ -20,6 +14,42 @@ spec:
       http:
         paths:
         - path: /
+          pathType: Prefix
           backend:
-            serviceName: furry-train-web-app
-            servicePort: 80
+            service:
+              name: furry-train-web-app
+              port:
+                number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: furry-train-web-app-http
+  annotations:
+    kubernetes.io/ingress.class: contour
+spec:
+  rules:
+    - host: "api.shipperizer.org"
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: furry-train-web-app
+              port:
+                number: 80
+---
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  namespace: default
+  name: ratelimited-vhost
+spec:
+  virtualhost:
+    fqdn: api.shipperizer.org
+    rateLimitPolicy:
+      local:
+        requests: 50
+        unit: second
+        burst: 10
