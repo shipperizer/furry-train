@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/shipperizer/furry-train/compare/v1.0.3...v1.1.0) (2021-04-26)
+
+
+### Features
+
+* allow arm64 build ([51739c5](https://www.github.com/shipperizer/furry-train/commit/51739c5a0976f3a547409d4d9dda074dd85380bb))
+* kaniko setup for arm64 ([3f2a3bd](https://www.github.com/shipperizer/furry-train/commit/3f2a3bd3a7e5aefea1839cf13dc7804879e8b93b))
+* update ingress to networking/v1 ([d726651](https://www.github.com/shipperizer/furry-train/commit/d726651f9604ef7c5f3c311ebb3471b7f47bb3f0))
+
+
+### Bug Fixes
+
+* use contour ingress controller ([de7d860](https://www.github.com/shipperizer/furry-train/commit/de7d860b5d9da931c7c3541086f35813b9936859))
+
 ### [1.0.3](https://www.github.com/shipperizer/furry-train/compare/v1.0.2...v1.0.3) (2021-04-23)
 
 
