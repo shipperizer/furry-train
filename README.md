@@ -2,7 +2,7 @@
 
 Simple web app with a status endpoint
 
-Used mainly to test the setup of a k3s cluster on raspberryPi 4 (raspbian)
+Used mainly to test the setup of a k3s cluster on raspberryPi 4 (Ubuntu server 64bit)
 
 Checkable at `https://api.shipperizer.org/api/v0/status`
 
@@ -25,7 +25,6 @@ Build setup is for multiarch support, a requirements for this is  [buildx](https
 
 For `skaffold` integration i followed the suggestion [here](https://github.com/GoogleContainerTools/skaffold/tree/master/examples/custom-buildx) as ther eis no direct integration between `skaffold` and `buildx`
 
-Kaniko is not supported officially on arm32 (it is only on 64bit), when changing distro on the Pi to [`arch linux`](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4) (@mafrosis i do this for you) i might have another go at it.
 
 Images are pushed to `ghcr.io/shipperizer/furry-train-web-app`, `k3s` cluster has a secret allowing it to pull them, see the snippet below in `deployments.yaml`
 
@@ -43,6 +42,16 @@ containers:
 imagePullSecrets:
 - name: regcred-github
 ```
+
+### Kaniko
+
+For `kaniko` builds, use the `--profile kaniko` modifier on `skaffold`, for this you will need an `Opaque` secret:
+
+```
+ echo '{"auths":{"ghcr.io":{"auth":"****************"}}}' | kubectl create secret generic regcred-github-kaniko --from-file=config.json=/dev/stdin
+ ```
+
+the profile is targeted at building on an `arm64` cluster only, if you need to use a different arch change `initImage` and `image` values
 
 
 ## Future improvements
