@@ -13,8 +13,6 @@ build:
       dependencies:
         dockerfile:
           path: Dockerfile
-          buildArgs:
-            app_name: web
   local:
     push: true
 
@@ -24,6 +22,17 @@ deploy:
       - "deployments/kustomize"
 
 profiles:
+- name: kaniko
+  build:
+    artifacts:
+    - image: ghcr.io/shipperizer/furry-train-web-app
+      kaniko:
+        image: gcr.io/kaniko-project/executor:arm64
+        initImage: docker.io/busybox:stable
+    cluster:
+      randomDockerConfigSecret: true
+      dockerConfig:
+        secretName: regcred-github-kaniko
 - name: cert-manager
   patches:
     - op: remove
