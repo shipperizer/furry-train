@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.0.0](https://www.github.com/shipperizer/furry-train/compare/v1.2.0...v2.0.0) (2021-04-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* specify main branch on git
+* drop kustomize type on argocd
+
+### Bug Fixes
+
+* add image to kustomize file ([fb18fd0](https://www.github.com/shipperizer/furry-train/commit/fb18fd0e0638685d98ae8b1f8e24d976dee8d299))
+* drop kustomize type on argocd ([b8814b2](https://www.github.com/shipperizer/furry-train/commit/b8814b29e53983198797a8a25b0d1dd7289c3b88))
+* specify main branch on git ([587f5ae](https://www.github.com/shipperizer/furry-train/commit/587f5ae24e8aa993277116c5e456713c637d05f0))
+
 ## [1.2.0](https://www.github.com/shipperizer/furry-train/compare/v1.1.0...v1.2.0) (2021-04-27)
 
 
