@@ -20,7 +20,7 @@ deploy:
   kustomize:
     paths:
       - "deployments/kustomize"
-      - "argocd-app.yaml"
+      - "argocd.yaml"
 
 profiles:
 - name: kaniko
