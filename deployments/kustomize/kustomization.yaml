@@ -9,3 +9,6 @@ resources:
 - configMap.yaml
 - certificate.yaml
 - ingress.yaml
+images:
+- name: ghcr.io/shipperizer/furry-train-web-app
+  newTag: v1.2.0
