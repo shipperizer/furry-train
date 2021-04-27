@@ -10,9 +10,8 @@ spec:
     kind: ClusterIssuer
   dnsNames:
   - api.shipperizer.org
-  duration: 1440h # 60d
-  renewBefore: 24h # 1d
-  isCA: false
+  duration: 1440h0m0s # 60d
+  renewBefore: 24h0m0s # 1d
   privateKey:
     algorithm: RSA
     encoding: PKCS1
