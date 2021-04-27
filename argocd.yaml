@@ -4,10 +4,10 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/git-branch: main
     argocd-image-updater.argoproj.io/image-list: furry-train-web=ghcr.io/shipperizer/furry-train-web-app
-    argocd-image-updater.argoproj.io/furry-train-web.update-strategy: semver
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/creds-2421407340
     argocd-image-updater.argoproj.io/furry-train-web.pull-secret: pullsecret:argocd/regcred-github
     argocd-image-updater.argoproj.io/furry-train-web.kustomize.image-name: ghcr.io/shipperizer/furry-train-web-app
+    argocd-image-updater.argoproj.io/furry-train-web.allow-tags: regexp:^v[0-9]+.[0-9]+.*
   name: furry-train-web
   namespace: argocd
 spec:
