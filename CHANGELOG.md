@@ -1,5 +1,13 @@
 # Changelog
 
+### [2.0.1](https://www.github.com/shipperizer/furry-train/compare/v2.0.0...v2.0.1) (2021-04-27)
+
+
+### Bug Fixes
+
+* add semver regexp for image updater annotation ([e2898ed](https://www.github.com/shipperizer/furry-train/commit/e2898ed6eeb7fb3c1902bd5d8371c7e70c6c9905))
+* update skaffold setup for argo ([773990d](https://www.github.com/shipperizer/furry-train/commit/773990d67991c0b8bddecba999986cd0614c9bb2))
+
 ## [2.0.0](https://www.github.com/shipperizer/furry-train/compare/v1.2.0...v2.0.0) (2021-04-27)
 
 
