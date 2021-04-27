@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/furry-train-web.update-strategy: semver
+    argocd-image-updater.argoproj.io/image-list: furry-train-web=ghcr.io/shipperizer/furry-train-web-app:v1.1.0
+  name: furry-train-web
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    kustomize:
+      images:
+      - ghcr.io/shipperizer/furry-train-web-app:v1.1.0
+    path: deployments/kustomize
+    repoURL: git@github.com:shipperizer/furry-train.git
+    targetRevision: v1.1.0
+  syncPolicy:
+    automated:
+      selfHeal: true
