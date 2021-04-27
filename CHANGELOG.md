@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/shipperizer/furry-train/compare/v1.1.0...v1.2.0) (2021-04-27)
+
+
+### Features
+
+* add argocd manifest ([af2b543](https://www.github.com/shipperizer/furry-train/commit/af2b543f473eee3c285b781be641cd46bbaa6e48))
+
+
+### Bug Fixes
+
+* adjust certificate manifest so argocd dosn't complain ([f283784](https://www.github.com/shipperizer/furry-train/commit/f283784b65cbf90a559d15d7d7c76b3a5bf9f06a))
+* adjust image-updated annotations ([1c405ec](https://www.github.com/shipperizer/furry-train/commit/1c405ec297d6b14a447f0a183e1456e4ca1e475a))
+
 ## [1.1.0](https://www.github.com/shipperizer/furry-train/compare/v1.0.3...v1.1.0) (2021-04-26)
 
 
