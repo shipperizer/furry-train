@@ -15,12 +15,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    kustomize:
-      images:
-      - ghcr.io/shipperizer/furry-train-web-app:v1.1.0
     path: deployments/kustomize
     repoURL: git@github.com:shipperizer/furry-train.git
-    targetRevision: v1.1.0
+    targetRevision: HEAD
   syncPolicy:
     automated:
       selfHeal: true
