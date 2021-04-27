@@ -53,6 +53,15 @@ For `kaniko` builds, use the `--profile kaniko` modifier on `skaffold`, for this
 
 the profile is targeted at building on an `arm64` cluster only, if you need to use a different arch change `initImage` and `image` values
 
+## ArgoCD
+
+ArgoCD is used (together with ArgoCD image updater) to keep application up-to-date
+
+see the `argocd-app.yaml` for extra informations
+local setup will be described eventually in here, step by step
+
+![ArgoCD](docs/argocd.png)
+
 
 ## Future improvements
 
