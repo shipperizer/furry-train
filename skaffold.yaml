@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2beta11
+apiVersion: skaffold/v2beta14
 kind: Config
 build:
   artifacts:
@@ -30,6 +30,9 @@ profiles:
       kaniko:
         image: gcr.io/kaniko-project/executor:arm64
         initImage: docker.io/busybox:stable
+        buildArgs:
+          TARGETOS: linux
+          TARGETARCH: arm64
     cluster:
       randomDockerConfigSecret: true
       dockerConfig:
