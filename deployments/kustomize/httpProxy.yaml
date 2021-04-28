@@ -1,0 +1,20 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: furry-train-web-app
+spec:
+  virtualhost:
+    fqdn: api.shipperizer.org
+    tls:
+      secretName: api-shipperizer-org-tls
+    rateLimitPolicy:
+      local:
+        requests: 50
+        unit: second
+        burst: 10
+  routes:
+    - conditions:
+      - prefix: /
+      services:
+      - name: furry-train-web-app
+        port: 80
