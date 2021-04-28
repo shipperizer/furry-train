@@ -1,6 +1,5 @@
 .PHONY=build
 
-GOPRIVATE?=github.com/sbs-discovery-sweden/*
 GO111MODULE?=on
 CGO_ENABLED?=0
 GOOS?=linux
