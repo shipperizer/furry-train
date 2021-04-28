@@ -17,10 +17,12 @@ build:
     push: true
 
 deploy:
+  kubectl:
+    manifests:
+    - "argocd.yaml"
   kustomize:
     paths:
       - "deployments/kustomize"
-      - "argocd.yaml"
 
 profiles:
 - name: kaniko
