@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.0](https://www.github.com/shipperizer/furry-train/compare/v2.0.1...v2.1.0) (2021-04-28)
+
+
+### Features
+
+* swap ingress with contour httpProxy ([b3be48c](https://www.github.com/shipperizer/furry-train/commit/b3be48ce8806552a67e88832a8daf997eb13adf9))
+
+
+### Bug Fixes
+
+* update kustomize ([79bd116](https://www.github.com/shipperizer/furry-train/commit/79bd116ef8695159485bc051bd553d267e14495e))
+
 ### [2.0.1](https://www.github.com/shipperizer/furry-train/compare/v2.0.0...v2.0.1) (2021-04-27)
 
 
