@@ -12,6 +12,10 @@ spec:
         requests: 50
         unit: second
         burst: 10
+    authorization:
+      extensionRef:
+        name: fluffy-octo-telegram-grpc-app
+        namespace: default
   routes:
     - conditions:
       - prefix: /
