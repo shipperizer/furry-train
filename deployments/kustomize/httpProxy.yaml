@@ -18,7 +18,7 @@ spec:
         namespace: default
   routes:
     - conditions:
-      - prefix: /
+      - prefix: /api/v0/status
       services:
       - name: furry-train-web-app
         port: 80
