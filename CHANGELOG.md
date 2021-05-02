@@ -1,5 +1,37 @@
 # Changelog
 
+## [3.0.0](https://www.github.com/shipperizer/furry-train/compare/v2.0.1...v3.0.0) (2021-05-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* bad path for furry-train proxy
+* use kubectl to deploy argocd manifest
+* dump GO_PRIVATE wrong value
+
+### Features
+
+* swap ingress with contour httpProxy ([b3be48c](https://www.github.com/shipperizer/furry-train/commit/b3be48ce8806552a67e88832a8daf997eb13adf9))
+* use contour authorization server ([8f41226](https://www.github.com/shipperizer/furry-train/commit/8f412268c9e740662dbdfef91dbd9da682635b83))
+
+
+### Bug Fixes
+
+* adjust labels, keep rootProxy global for now ([5761210](https://www.github.com/shipperizer/furry-train/commit/576121097e5ebb10db724093b0a2d60c31ff8cee))
+* bad path for furry-train proxy ([5b40ee5](https://www.github.com/shipperizer/furry-train/commit/5b40ee50c97a434daf3cb989c80e5d4399905c3a))
+* drop strategic merge for rootProxy ([5260aea](https://www.github.com/shipperizer/furry-train/commit/5260aeacb104a020e45c1c24b48033c87afaf56e))
+* dump GO_PRIVATE wrong value ([2c32309](https://www.github.com/shipperizer/furry-train/commit/2c32309889d43e9a23d0719902692047f0c86cbe))
+* missing rootProxy from file list ([87ac58c](https://www.github.com/shipperizer/furry-train/commit/87ac58c8705e19a0af10e8e061c7d487d7c2034c))
+* narrow down ingress prefix to only status endpoint ([bd6f20a](https://www.github.com/shipperizer/furry-train/commit/bd6f20a35e39a89418a38a1a642f3c99f546151d))
+* patch routes, not includes ([cc67d69](https://www.github.com/shipperizer/furry-train/commit/cc67d69f3f41c5f9ea556dd2667f560d4d77fd14))
+* refactor httpProxy setup ([be13451](https://www.github.com/shipperizer/furry-train/commit/be134514ca5697f99a6e065b9811997cf05a1085))
+* skaffold needs extra params ([fdb6589](https://www.github.com/shipperizer/furry-train/commit/fdb6589dc063fd6860902b1606c69c716716d7ac))
+* update argocd secret ([25eac5e](https://www.github.com/shipperizer/furry-train/commit/25eac5ee027da68ac9eaee60f6dda7531959dcd3))
+* update grpc health check version ([252172f](https://www.github.com/shipperizer/furry-train/commit/252172fadaeb521dc3a926c6d16fadd1431c6139))
+* update kustomize ([79bd116](https://www.github.com/shipperizer/furry-train/commit/79bd116ef8695159485bc051bd553d267e14495e))
+* use different patch method for kustomize ([9738a2e](https://www.github.com/shipperizer/furry-train/commit/9738a2e8e2accb317307cc5bcbf8cc45e9133d11))
+* use kubectl to deploy argocd manifest ([f964ac0](https://www.github.com/shipperizer/furry-train/commit/f964ac01d0785c81bc8bcfb5dcfd7696eec4abc1))
+
 ### [2.0.1](https://www.github.com/shipperizer/furry-train/compare/v2.0.0...v2.0.1) (2021-04-27)
 
 
