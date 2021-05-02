@@ -20,9 +20,10 @@ patchesJson6902:
     name: api-shipperizer-org
   patch: |
     - op: add
-      path: /spec/includes
+      path: /spec/routes
       value:
-      - name: furry-train-web-app
-        namespace: default
-        conditions:
-        - prefix: /api/v0/status
+        - conditions:
+          - prefix: /api/v0/status
+          services:
+          - name: furry-train-web-app
+            port: 80
