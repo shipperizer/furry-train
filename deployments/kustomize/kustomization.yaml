@@ -12,3 +12,6 @@ resources:
 images:
 - name: ghcr.io/shipperizer/furry-train-web-app
   newTag: v1.2.0
+
+patchesStrategicMerge:
+- rootProxy.yaml
