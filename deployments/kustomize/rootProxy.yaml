@@ -16,8 +16,3 @@ spec:
       extensionRef:
         name: fluffy-octo-telegram-grpc-app
         namespace: default
-  includes:
-  - name: furry-train-web-app
-    namespace: default
-    conditions:
-    - prefix: /api/v0/status

@@ -16,3 +16,17 @@ images:
 
 patchesStrategicMerge:
 - rootProxy.yaml
+
+patchesJson6902:
+- target:
+    version: v1
+    kind: HTTPProxy
+    name: api-shipperizer-org
+  patch: |
+    - op: add
+      path: /spec/includes
+      value:
+      - name: furry-train-web-app
+        namespace: default
+        conditions:
+        - prefix: /api/v0/status
