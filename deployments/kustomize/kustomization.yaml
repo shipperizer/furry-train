@@ -9,6 +9,7 @@ resources:
 - configMap.yaml
 - certificate.yaml
 - httpProxy.yaml
+- rootProxy.yaml
 images:
 - name: ghcr.io/shipperizer/furry-train-web-app
   newTag: v1.2.0
