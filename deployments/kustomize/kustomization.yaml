@@ -12,18 +12,3 @@ resources:
 images:
 - name: ghcr.io/shipperizer/furry-train-web-app
   newTag: v1.2.0
-
-patchesJson6902:
-- target:
-    version: v1
-    kind: HTTPProxy
-    name: api-shipperizer-org
-  patch: |
-    - op: add
-      path: /spec/routes
-      value:
-        - conditions:
-          - prefix: /api/v0/status
-          services:
-          - name: furry-train-web-app
-            port: 80

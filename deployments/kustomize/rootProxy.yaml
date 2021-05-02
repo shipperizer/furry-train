@@ -16,3 +16,14 @@ spec:
       extensionRef:
         name: fluffy-octo-telegram-grpc-app
         namespace: default
+  routes:
+    - conditions:
+      - prefix: /api/.well-known/jwks.json
+      services:
+      - name: fluffy-octo-telegram-web-app
+        port: 80
+    - conditions:
+      - prefix: /api/v0/status
+      services:
+      - name: furry-train-web-app
+        port: 80
