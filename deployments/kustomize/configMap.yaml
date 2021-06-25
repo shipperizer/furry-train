@@ -4,3 +4,4 @@ metadata:
   name: furry-train-web-app
 data:
   HTTP_PORT: "8000"
+  LOG_LEVEL: ERROR
