@@ -16,7 +16,8 @@ import (
 )
 
 type EnvSpec struct {
-	Port string `envconfig:"http_port"`
+	Port     string `envconfig:"http_port"`
+	LogLevel string `envconfig:"log_level"`
 }
 
 func Status(w http.ResponseWriter, r *http.Request) {
@@ -32,7 +33,13 @@ func main() {
 		log.Fatal(err.Error())
 	}
 
-	log.SetLevel(log.DebugLevel)
+	level, err := log.ParseLevel(specs.LogLevel)
+
+	if err != nil {
+		level = log.DebugLevel
+	}
+
+	log.SetLevel(level)
 
 	router := mux.NewRouter()
 	router.HandleFunc("/api/v0/status", Status).Methods(http.MethodGet, http.MethodOptions)
