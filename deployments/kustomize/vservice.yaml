@@ -6,7 +6,7 @@ spec:
   hosts:
   - "api.shipperizer.org"
   gateways:
-  - gateway
+  - istio-ingressgateway
   http:
   - match:
     - uri:
