@@ -6,7 +6,7 @@ spec:
   hosts:
   - "api.shipperizer.org"
   gateways:
-  - gateway
+  - istio-system/gateway
   http:
   - match:
     - uri:
@@ -16,3 +16,15 @@ spec:
         port:
           number: 80
         host: furry-train-web-app
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: furry-train-app
+spec:
+  host: furry-train-web-app
+  exportTo:
+    - "."
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN
