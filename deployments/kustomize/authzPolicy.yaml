@@ -9,7 +9,7 @@ spec:
   action: CUSTOM
   provider:
     # The provider name must match the extension provider defined in the mesh config.
-    name: fluffy-octo-telegram-grpc-app
+    name: fluffy-octo-telegram-app-grpc
   rules:
   # The rules specify when to trigger the external authorizer.
   - to:
