@@ -1,0 +1,17 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: ext-authz
+spec:
+  selector:
+    matchLabels:
+      app: furry-train-web-app
+  action: CUSTOM
+  provider:
+    # The provider name must match the extension provider defined in the mesh config.
+    name: fluffy-octo-telegram-grpc-app
+  rules:
+  # The rules specify when to trigger the external authorizer.
+  - to:
+    - operation:
+        paths: ["/api/v0/status"]
