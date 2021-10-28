@@ -9,6 +9,7 @@ resources:
 - configMap.yaml
 - certificate.yaml
 - vservice.yaml
+- authzPolicy.yaml
 # - rootProxy.yaml
 images:
 - name: ghcr.io/shipperizer/furry-train-web-app
