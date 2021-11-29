@@ -10,7 +10,9 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /api/v0/status
+        prefix: /api/v1/status
+    - uri:
+        prefix: /api/v1/check
     route:
     - destination:
         port:
