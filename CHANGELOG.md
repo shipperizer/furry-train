@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.3.0](https://www.github.com/shipperizer/furry-train/compare/v3.2.1...v3.3.0) (2021-11-29)
+
+
+### Features
+
+* add grpc proxy code ([c9012c5](https://www.github.com/shipperizer/furry-train/commit/c9012c59bc3073fef91348bb296db744d480f467))
+* add status handler ([3920bc5](https://www.github.com/shipperizer/furry-train/commit/3920bc5801f922096c511d7390b4a1b43dc682b0))
+
 ### [3.2.1](https://www.github.com/shipperizer/furry-train/compare/v3.2.0...v3.2.1) (2021-11-29)
 
 
