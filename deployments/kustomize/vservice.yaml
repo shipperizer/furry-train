@@ -22,7 +22,7 @@ spec:
     - uri:
         prefix: /api/v2/check
     rewrite: 
-      uri: /api/v2/check
+      uri: /api/v1/check
     route:
     - destination:
         port:
