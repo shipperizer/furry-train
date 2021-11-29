@@ -18,6 +18,16 @@ spec:
         port:
           number: 80
         host: furry-train-web-app
+  - match:
+    - uri:
+        prefix: /api/v2/check
+    rewrite: 
+      uri: /api/v2/check
+    route:
+    - destination:
+        port:
+          number: 80
+        host: furry-train-proxy-app
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
@@ -37,6 +47,18 @@ metadata:
   name: furry-train-grpc-app
 spec:
   host: furry-train-grpc-app
+  exportTo:
+    - "."
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN      
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: furry-train-proxy-app
+spec:
+  host: furry-train-proxy-app
   exportTo:
     - "."
   trafficPolicy:

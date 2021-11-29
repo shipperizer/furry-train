@@ -36,3 +36,21 @@ spec:
   selector:
     app: furry-train-grpc-app
   type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/path: /api/v1/metrics
+    prometheus.io/scrape: "true"
+  name: furry-train-proxy-app
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app: furry-train-proxy-app
+  type: ClusterIP
+---

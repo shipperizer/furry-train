@@ -24,6 +24,17 @@ build:
       dependencies:
         dockerfile:
           path: Dockerfile
+  - image: ghcr.io/shipperizer/furry-train-proxy-app
+    sync:
+      infer:
+      - "cmd/proxy/main.go"
+      - "go.mod"
+      - "go.sum"
+    custom:
+      buildCommand: APP_NAME=proxy ./buildx.sh
+      dependencies:
+        dockerfile:
+          path: Dockerfile
   local:
     push: true
 

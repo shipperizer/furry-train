@@ -90,3 +90,49 @@ spec:
           periodSeconds: 30
       imagePullSecrets:
       - name: regcred-github
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: furry-train-proxy-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: furry-train-proxy-app
+  template:
+    metadata:
+      labels:
+        app: furry-train-proxy-app
+      annotations:
+        prometheus.io/path: /api/v1/metrics
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+    spec:
+      containers:
+      - image: ghcr.io/shipperizer/furry-train-proxy-app
+        name: furry-train-proxy-app
+        envFrom:
+          - configMapRef:
+              name: furry-train-proxy-app
+        ports:
+        - name: http
+          containerPort: 8000
+        readinessProbe:
+          httpGet:
+            path: "/api/v1/status"
+            port: 8000
+          initialDelaySeconds: 5
+          failureThreshold: 10
+          timeoutSeconds: 5
+          periodSeconds: 30
+        livenessProbe:
+          httpGet:
+            path: "/api/v1/status"
+            port: 8000
+          initialDelaySeconds: 5
+          failureThreshold: 10
+          timeoutSeconds: 5
+          periodSeconds: 30
+      imagePullSecrets:
+      - name: regcred-github
