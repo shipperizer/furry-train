@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -5,3 +6,21 @@ metadata:
 data:
   HTTP_PORT: "8000"
   LOG_LEVEL: ERROR
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: furry-train-grpc-app
+data:
+  HTTP_PORT: "8000"
+  GRPC_PORT: "9000"
+  LOG_LEVEL: ERROR
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: furry-train-proxy-app
+data:
+  HTTP_PORT: "8000"
+  GRPC_PORT: "9000"
+  LOG_LEVEL: ERROR  

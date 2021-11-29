@@ -22,7 +22,7 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: furry-train-app
+  name: furry-train-web-app
 spec:
   host: furry-train-web-app
   exportTo:
@@ -30,3 +30,15 @@ spec:
   trafficPolicy:
     loadBalancer:
       simple: ROUND_ROBIN
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: furry-train-grpc-app
+spec:
+  host: furry-train-grpc-app
+  exportTo:
+    - "."
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN      

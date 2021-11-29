@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -12,7 +13,7 @@ spec:
       labels:
         app: furry-train-web-app
       annotations:
-        prometheus.io/path: /metrics
+        prometheus.io/path: /api/v1/metrics
         prometheus.io/scrape: "true"
         prometheus.io/port: "8000"
     spec:
@@ -37,6 +38,52 @@ spec:
           httpGet:
             path: "/api/v1/status"
             port: 8000
+          initialDelaySeconds: 5
+          failureThreshold: 10
+          timeoutSeconds: 5
+          periodSeconds: 30
+      imagePullSecrets:
+      - name: regcred-github
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: furry-train-grpc-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: furry-train-grpc-app
+  template:
+    metadata:
+      labels:
+        app: furry-train-grpc-app
+      annotations:
+        prometheus.io/path: /api/v1/metrics
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+    spec:
+      containers:
+      - image: ghcr.io/shipperizer/furry-train-grpc-app
+        name: furry-train-grpc-app
+        envFrom:
+          - configMapRef:
+              name: furry-train-grpc-app
+        ports:
+        - name: http
+          containerPort: 8000
+        - name: grpc
+          containerPort: 9000
+        readinessProbe:
+          exec:
+            command: ["/bin/grpc_health_probe", "-addr=:9000"]
+          initialDelaySeconds: 5
+          failureThreshold: 10
+          timeoutSeconds: 5
+          periodSeconds: 30
+        livenessProbe:
+          exec:
+            command: ["/bin/grpc_health_probe", "-addr=:9000"]
           initialDelaySeconds: 5
           failureThreshold: 10
           timeoutSeconds: 5
