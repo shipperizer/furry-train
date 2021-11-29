@@ -77,10 +77,10 @@ spec:
         readinessProbe:
           exec:
             command: ["/bin/grpc_health_probe", "-addr=:9000"]
-          initialDelaySeconds: 5
+          initialDelaySeconds: 30
           failureThreshold: 10
           timeoutSeconds: 5
-          periodSeconds: 30
+          periodSeconds: 10
         livenessProbe:
           exec:
             command: ["/bin/grpc_health_probe", "-addr=:9000"]
