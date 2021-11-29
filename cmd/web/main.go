@@ -2,17 +2,19 @@ package main
 
 import (
 	"context"
-	"encoding/json"
-	"fmt"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
 
-	"github.com/gorilla/mux"
 	"github.com/kelseyhightower/envconfig"
-	log "github.com/sirupsen/logrus"
+	"github.com/shipperizer/miniature-monkey/config"
+	"github.com/shipperizer/miniature-monkey/core"
+	"go.uber.org/zap"
+
+	"github.com/shipperizer/furry-train/check"
+	"github.com/shipperizer/furry-train/monitoring"
 )
 
 type EnvSpec struct {
@@ -20,43 +22,43 @@ type EnvSpec struct {
 	LogLevel string `envconfig:"log_level"`
 }
 
-func Status(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(map[string]string{"message": "Purple Bro"})
-}
-
 func main() {
+	logger, err := zap.NewDevelopment()
+	defer logger.Sync()
+
+	if err != nil {
+		panic(err.Error())
+	}
+
 	var specs EnvSpec
-	err := envconfig.Process("", &specs)
+	err = envconfig.Process("", &specs)
 
 	if err != nil {
-		log.Fatal(err.Error())
+		logger.Sugar().Fatal(err.Error())
 	}
 
-	level, err := log.ParseLevel(specs.LogLevel)
+	apiCfg := config.NewAPIConfig(
+		"furry-train-web",
+		nil,
+		monitoring.NewPrometheusMonitor(monitoring.PrometheusConfig{Service: "furry-train-web", Logger: logger.Sugar()}),
+		logger.Sugar(),
+	)
 
-	if err != nil {
-		level = log.DebugLevel
-	}
+	api := core.NewAPI(apiCfg)
 
-	log.SetLevel(level)
-
-	router := mux.NewRouter()
-	router.HandleFunc("/api/v0/status", Status).Methods(http.MethodGet, http.MethodOptions)
+	api.RegisterBlueprints(api.Router(), check.NewBlueprint(logger.Sugar()))
 
 	srv := &http.Server{
-		Addr: fmt.Sprintf("0.0.0.0:%v", specs.Port),
-		// Good practice to set timeouts to avoid Slowloris attacks.
+		Addr:         "0.0.0.0:8000",
 		WriteTimeout: time.Second * 15,
 		ReadTimeout:  time.Second * 15,
 		IdleTimeout:  time.Second * 60,
-		Handler:      router, // Pass our instance of gorilla/mux in.
+		Handler:      api.Handler(),
 	}
 
 	go func() {
-		log.Infof("Starting up on %v", specs.Port)
 		if err := srv.ListenAndServe(); err != nil {
-			log.Fatal(err)
+			logger.Sugar().Fatal(err)
 		}
 	}()
 
@@ -72,7 +74,9 @@ func main() {
 	// Doesn't block if no connections, but will otherwise wait
 	// until the timeout deadline.
 	srv.Shutdown(ctx)
-
-	log.Println("Shutting down")
+	// Optionally, you could run srv.Shutdown in a goroutine and block on
+	// <-ctx.Done() if your application should wait for other services
+	// to finalize based on context cancellation.
+	logger.Sugar().Info("Shutting down")
 	os.Exit(0)
 }
