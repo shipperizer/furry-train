@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.2.1](https://www.github.com/shipperizer/furry-train/compare/v3.2.0...v3.2.1) (2021-11-29)
+
+
+### Bug Fixes
+
+* use APP_NAME in docker build process ([23c7347](https://www.github.com/shipperizer/furry-train/commit/23c73474c78300a5fd869b3afd03ed2bdeb03131))
+
 ## [3.2.0](https://www.github.com/shipperizer/furry-train/compare/v3.1.1...v3.2.0) (2021-11-29)
 
 
