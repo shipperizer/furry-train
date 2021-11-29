@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.1.1](https://www.github.com/shipperizer/furry-train/compare/v3.1.0...v3.1.1) (2021-11-29)
+
+
+### Bug Fixes
+
+* broken api metric name ([a674def](https://www.github.com/shipperizer/furry-train/commit/a674deff122784bb29647f29b9d3c658f26093aa))
+
 ## [3.1.0](https://www.github.com/shipperizer/furry-train/compare/v3.0.0...v3.1.0) (2021-11-29)
 
 
