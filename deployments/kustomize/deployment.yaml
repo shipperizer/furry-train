@@ -27,7 +27,7 @@ spec:
           containerPort: 8000
         readinessProbe:
           httpGet:
-            path: "/api/v0/status"
+            path: "/api/v1/status"
             port: 8000
           initialDelaySeconds: 5
           failureThreshold: 10
@@ -35,7 +35,7 @@ spec:
           periodSeconds: 30
         livenessProbe:
           httpGet:
-            path: "/api/v0/status"
+            path: "/api/v1/status"
             port: 8000
           initialDelaySeconds: 5
           failureThreshold: 10
