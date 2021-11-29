@@ -17,3 +17,5 @@
 # protobuf compilation
 googleapis/
 grpc-gateway/
+
+cmd/**/app
