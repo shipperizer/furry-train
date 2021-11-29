@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.1.0](https://www.github.com/shipperizer/furry-train/compare/v3.0.0...v3.1.0) (2021-11-29)
+
+
+### Features
+
+* add monitoring pkg for prometheus ([b1bf653](https://www.github.com/shipperizer/furry-train/commit/b1bf653e46b3e733433824973ace11b33bb1a3a8))
+* create a check endpoint ([7fd0a90](https://www.github.com/shipperizer/furry-train/commit/7fd0a905dd3233aeca4c527d71b602e03b2dac36))
+* update web app to use miniature-monkey lib ([1b1ff62](https://www.github.com/shipperizer/furry-train/commit/1b1ff62af2a72c08ef8d3e80409c56fd621b92d3))
+
+
+### Bug Fixes
+
+* update deps ([de11177](https://www.github.com/shipperizer/furry-train/commit/de1117777483dfd43f150f142d8acb40a0ee2e14))
+
 ## [3.0.0](https://www.github.com/shipperizer/furry-train/compare/v2.0.1...v3.0.0) (2021-06-25)
 
 
