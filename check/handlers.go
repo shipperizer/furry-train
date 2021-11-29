@@ -18,6 +18,7 @@ func (bp *Blueprint) Routes(router *mux.Router) {
 }
 
 func (bp *Blueprint) check(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	resp := new(CheckResponse)
 	resp.Status = http.StatusOK
