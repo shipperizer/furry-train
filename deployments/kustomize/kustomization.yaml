@@ -15,3 +15,5 @@ images:
   newTag: v1.2.0
 - name: ghcr.io/shipperizer/furry-train-grpc-app
   newTag: v3.2.0
+- name: ghcr.io/shipperizer/furry-train-proxy-app
+  newTag: v3.3.0

@@ -17,3 +17,4 @@ spec:
         paths: 
         - "/api/v1/status"
         - "/api/v1/check"
+        - "/api/v2/check"

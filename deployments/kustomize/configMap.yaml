@@ -22,5 +22,5 @@ metadata:
   name: furry-train-proxy-app
 data:
   HTTP_PORT: "8000"
-  GRPC_PORT: "9000"
-  LOG_LEVEL: ERROR  
+  LOG_LEVEL: ERROR
+  GRPC_CHECK_ENDPOINT: "furry-train-grpc-app.default.svc.cluster.local:9000"  
