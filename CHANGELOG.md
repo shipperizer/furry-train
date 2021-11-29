@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.2.0](https://www.github.com/shipperizer/furry-train/compare/v3.1.1...v3.2.0) (2021-11-29)
+
+
+### Features
+
+* add gRPCs check and health ([7631d9e](https://www.github.com/shipperizer/furry-train/commit/7631d9ec206007992e47a2225b99cdb8c4fb3bb8))
+* grpc app ([2d7c837](https://www.github.com/shipperizer/furry-train/commit/2d7c837d633cdd1776341ff2323d2986cf3b1ba8))
+
+
+### Bug Fixes
+
+* set json content type ([8012a58](https://www.github.com/shipperizer/furry-train/commit/8012a58995b482d643c76498da06b6b1ecbf1c76))
+
 ### [3.1.1](https://www.github.com/shipperizer/furry-train/compare/v3.1.0...v3.1.1) (2021-11-29)
 
 
