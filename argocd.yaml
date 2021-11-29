@@ -3,7 +3,7 @@ kind: Application
 metadata:
   annotations:
     argocd-image-updater.argoproj.io/git-branch: main
-    argocd-image-updater.argoproj.io/image-list: furry-train-web=ghcr.io/shipperizer/furry-train-web-app,furry-train-grpc=ghcr.io/shipperizer/furry-train-grpc-app
+    argocd-image-updater.argoproj.io/image-list: furry-train-web=ghcr.io/shipperizer/furry-train-web-app,furry-train-grpc=ghcr.io/shipperizer/furry-train-grpc-app,furry-train-proxy=ghcr.io/shipperizer/furry-train-proxy-app
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/repo-4148480936
     argocd-image-updater.argoproj.io/furry-train-web.pull-secret: pullsecret:argocd/regcred-github
     argocd-image-updater.argoproj.io/furry-train-web.kustomize.image-name: ghcr.io/shipperizer/furry-train-web-app
@@ -11,6 +11,9 @@ metadata:
     argocd-image-updater.argoproj.io/furry-train-grpc.pull-secret: pullsecret:argocd/regcred-github
     argocd-image-updater.argoproj.io/furry-train-grpc.kustomize.image-name: ghcr.io/shipperizer/furry-train-grpc-app
     argocd-image-updater.argoproj.io/furry-train-grpc.allow-tags: regexp:^v[0-9]+.[0-9]+.*
+    argocd-image-updater.argoproj.io/furry-train-proxy.pull-secret: pullsecret:argocd/regcred-github
+    argocd-image-updater.argoproj.io/furry-train-proxy.kustomize.image-name: ghcr.io/shipperizer/furry-train-proxy-app
+    argocd-image-updater.argoproj.io/furry-train-proxy.allow-tags: regexp:^v[0-9]+.[0-9]+.*
   name: furry-train
   namespace: argocd
 spec:
