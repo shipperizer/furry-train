@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package check.v0;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/shipperizer/furry-train/check";
+
+message CheckResponse {
+    string message = 1;
+    int64 status = 2;
+}
+
+service CheckService {
+    rpc Check(google.protobuf.Empty) returns (CheckResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/check"
+        };
+    }
+}
