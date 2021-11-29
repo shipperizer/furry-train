@@ -13,8 +13,20 @@ build:
       dependencies:
         dockerfile:
           path: Dockerfile
+  - image: ghcr.io/shipperizer/furry-train-grpc-app
+    sync:
+      infer:
+      - "cmd/grpc/main.go"
+      - "go.mod"
+      - "go.sum"
+    custom:
+      buildCommand: ./buildx.sh
+      dependencies:
+        dockerfile:
+          path: Dockerfile
   local:
     push: true
+
 
 deploy:
   kubectl:
