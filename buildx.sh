@@ -9,7 +9,9 @@
 #  (2) update the corresponding node-affinities in k8s/pod.yaml.
 
 # The platforms to build.
-platforms="linux/amd64,linux/arm,linux/arm64" 
+platforms="linux/amd64,linux/arm,linux/arm64"
+
+app_name=$APP_NAME
 
 # `buildx` uses named _builder_ instances configured for specific platforms.
 # This script creates a `skaffold-builder` as required.
@@ -26,4 +28,4 @@ else
 fi
 
 set -x      # show the command-line
-docker buildx build --builder skaffold-builder --tag $IMAGE $args "$BUILD_CONTEXT"
+docker buildx build --build-arg app_name=$app_name --builder skaffold-builder --tag $IMAGE $args "$BUILD_CONTEXT"
