@@ -13,6 +13,7 @@ ENV GO111MODULE=on
 ENV CGO_ENABLED=0
 ENV GO_BIN=/go/bin/app
 ENV GRPC_HEALTH_PROBE_VERSION=v0.3.6
+ENV APP_NAME=$app_name
 RUN apt-get update
 RUN apt-get install -y awscli
 RUN wget -qO/bin/grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/${GRPC_HEALTH_PROBE_VERSION}/grpc_health_probe-${GOOS}-${GOARCH} && \
