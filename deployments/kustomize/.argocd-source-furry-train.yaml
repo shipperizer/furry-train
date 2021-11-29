@@ -1,5 +1,5 @@
 kustomize:
   images:
   - ghcr.io/shipperizer/furry-train-web-app=ghcr.io/shipperizer/furry-train-web-app:v3.3.0
-  - ghcr.io/shipperizer/furry-train-grpc-app=ghcr.io/shipperizer/furry-train-grpc-app:v3.2.1
+  - ghcr.io/shipperizer/furry-train-grpc-app=ghcr.io/shipperizer/furry-train-grpc-app:v3.3.0
   - ghcr.io/shipperizer/furry-train-proxy-app=ghcr.io/shipperizer/furry-train-proxy-app:v3.3.0
