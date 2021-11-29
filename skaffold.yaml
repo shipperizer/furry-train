@@ -9,7 +9,7 @@ build:
       - "go.mod"
       - "go.sum"
     custom:
-      buildCommand: ./buildx.sh
+      buildCommand: APP_NAME=web ./buildx.sh
       dependencies:
         dockerfile:
           path: Dockerfile
@@ -20,7 +20,7 @@ build:
       - "go.mod"
       - "go.sum"
     custom:
-      buildCommand: ./buildx.sh
+      buildCommand: APP_NAME=grpc ./buildx.sh
       dependencies:
         dockerfile:
           path: Dockerfile
