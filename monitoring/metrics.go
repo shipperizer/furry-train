@@ -15,7 +15,7 @@ type Metric struct {
 func GaugesV1() map[string][]string {
 	return map[string][]string{
 		"http_api_time":  {"service", "route"},
-		"http_pai_count": {"service", "route"},
+		"http_api_count": {"service", "route"},
 	}
 }
 
