@@ -30,6 +30,26 @@ spec:
         host: furry-train-proxy-app
 ---
 apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: furry-train-grpc-app-internal
+spec:
+  hosts:
+  - furry-train-grpc-app
+  gateways:
+  - mesh
+  exportTo:
+  - "."
+  http:
+  - match:
+    - port: 9000
+    route:
+    - destination:
+        host: furry-train-grpc-app
+        port:
+          number: 9000
+---
+apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
   name: furry-train-web-app
