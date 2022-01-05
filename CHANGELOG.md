@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.3.1](https://www.github.com/shipperizer/furry-train/compare/v3.3.0...v3.3.1) (2022-01-05)
+
+
+### Bug Fixes
+
+* drop sigkill catching ([a8041ed](https://www.github.com/shipperizer/furry-train/commit/a8041ed1299a640348b1a7d5cdef33937c35e9be))
+
 ## [3.3.0](https://www.github.com/shipperizer/furry-train/compare/v3.2.1...v3.3.0) (2021-11-29)
 
 
