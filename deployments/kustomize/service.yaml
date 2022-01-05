@@ -5,6 +5,7 @@ metadata:
   annotations:
     prometheus.io/path: /api/v1/metrics
     prometheus.io/scrape: "true"
+    io.cilium/global-service: "true"  
   name: furry-train-web-app
 spec:
   ports:
@@ -22,6 +23,7 @@ metadata:
   annotations:
     prometheus.io/path: /api/v1/metrics
     prometheus.io/scrape: "true"
+    io.cilium/global-service: "true"
   name: furry-train-grpc-app
 spec:
   ports:
@@ -43,6 +45,7 @@ metadata:
   annotations:
     prometheus.io/path: /api/v1/metrics
     prometheus.io/scrape: "true"
+    io.cilium/global-service: "true"
   name: furry-train-proxy-app
 spec:
   ports:
